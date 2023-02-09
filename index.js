@@ -23,25 +23,19 @@ document.addEventListener("DOMContentLoaded", () => {
     newDiv.appendChild(newImg)
     //the below code needs to be here
     const buttonz = document.getElementsByClassName("buttonclass")
-    console.log(buttonz)
-    console.log(buttonz.length)
+    const divs = document.querySelectorAll("div")
 
     for (const aButton of buttonz) {
       aButton.addEventListener("click", clickButton)
     }
-    })
+    for (const div of divs) {
+      div.addEventListener("mouseover", makePop)
+    }
+    }
+    )
     
 
   }
-  
-  //when domcontentloads, I want to add an Event Listener to each Button
-
-//   const buttonz = document.getElementsByClassName("buttonclass")
-//   function addClickButton(json) {
-//     console.log("this function fires")
-//     //buttonz.addEventListener("click", clickButton())
-//   }
-
 
   function clickButton(event) {
     console.log("button clicked")
@@ -65,20 +59,30 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       else {console.log("peanuts")}
     }
-    
-    
     }
-    //document.body.
+    
   }
     });
-  //});
-//       addToy = !addToy;
-//       if (addToy) {
-//         toyFormContainer.style.display = "block";
-//       } else {
-//         toyFormContainer.style.display = "none";
-//       }
-
+  function makePop(element) {
+    // const target = event.target;
+    // //.catch((error) => { document.getElementById("modal").classList.remove("hidden") setTimeout(() => { document.getElementById("modal").classList.add("hidden")
+    // <div class="hidden" id="modal"> <h2>Error! Please try again.</h2> <p id="modal-message"></p> </div>
+ 
+      let defaultBG = element.style.backgroundColor;
+      let defaultTransition = element.style.transition;
+  
+      element.style.transition = "background 1s";
+      element.style.backgroundColor = "#FDFF47";
+  
+      setTimeout(function()
+      {
+          element.style.backgroundColor = defaultBG;
+          setTimeout(function() {
+              element.style.transition = defaultTransition;
+          }, 1000);
+      }, 1000);
+  
+  } 
 
 //stuff from before
 // document.addEventListener("DOMContentLoaded", () => {
