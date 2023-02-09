@@ -45,6 +45,12 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((resp) => resp.json())
     .then((json) => callback(json))
     function callback(json) {
+      const element =  document.getElementById(json[i].id);
+      if (typeof(element) != 'undefined' && element != null)
+      {
+        element.setAttribute("class", "hidden")
+      }
+      else {
     const moreInfoDiv = document.createElement("p")
     const prodLinkElement = document.createElement("a")
     for (let i=0; i<json.length; i++) {
@@ -60,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       else {console.log("peanuts")}
     }
+      }
     }
     
   }
