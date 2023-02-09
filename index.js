@@ -16,6 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
     newInput.setAttribute("value", "Show me more!");
     newInput.setAttribute("id", `${element.id}-btn`);
     newInput.setAttribute("class", "buttonclass")
+    newInput.style.borderRadius = "12px"
+    newInput.style.fontFamily = "Playfair"
+    newInput.style.backgroundColor = "#CCFFFF"
+    newInput.style.borderColor = "#00FFFF"
     newDiv.appendChild(newInput)
     const newImg = document.createElement("img")
     newImg.src = element.image_link
@@ -114,11 +118,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const defaultBoxShadow = event.target.style.boxShadow;
       const defaultTransition = event.target.style.transition;
       event.target.style.transition = "FFFFFF";
-      event.target.style.backgroundColor = "#FF00BF";
+      event.target.style.backgroundColor = "#FF1493";
       event.target.style.border = "1px solid";
       event.target.style.padding = "10px";
-      event.target.style.boxShadow = "5px 10px #E6E6FA";
-   
+      event.target.style.boxShadow = "5px 10px #FFDFDD";
+      
+      //FF00BF
    
   
       setTimeout(function()
