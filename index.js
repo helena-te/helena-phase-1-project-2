@@ -6,7 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
     //.then((json) => addClickButton(json));
   function makeProductDivs(json) {
   json.forEach(element => 
-    {const newDiv = document.createElement("div")
+    {console.log(element.id)
+      const newDiv = document.createElement("div")
     newDiv.id = element.id
     newDiv.innerText = element.name
     document.body.appendChild(newDiv)
@@ -15,14 +16,24 @@ document.addEventListener("DOMContentLoaded", () => {
     newInput.setAttribute("value", "Show me more!");
     newInput.setAttribute("id", `${element.id}-btn`);
     newInput.setAttribute("class", "buttonclass")
+    console.log(newInput)
     newDiv.appendChild(newInput)
     const newImg = document.createElement("img")
     newImg.src = element.image_link 
     newDiv.appendChild(newImg)
+    //the below code needs to be here
+    const buttonz = document.getElementsByClassName("buttonclass")
+    console.log(buttonz)
+    console.log(buttonz.length)
+
+    for (const aButton of buttonz) {
+      aButton.addEventListener("click", clickButton)
+    }
     })
     
 
   }
+  
   //when domcontentloads, I want to add an Event Listener to each Button
 
 //   const buttonz = document.getElementsByClassName("buttonclass")
@@ -30,18 +41,33 @@ document.addEventListener("DOMContentLoaded", () => {
 //     console.log("this function fires")
 //     //buttonz.addEventListener("click", clickButton())
 //   }
-const buttonz = document.body.getElementsByClassName("buttonclass")
-    console.log(buttonz.length)
-    buttonz.addEventListener("click", clickButton)
 
-  function clickButton(json) {
+
+  function clickButton(event) {
     console.log("button clicked")
+    const whichButton = event.target;
+    const elementNumber = whichButton.id.split("-")[0]
+    const correspondingDiv = document.getElementById(elementNumber)
+    fetch(makeupUrl)
+    .then((resp) => resp.json())
+    .then((json) => callback(json))
+    function callback(json) {
     const moreInfoDiv = document.createElement("p")
-    //const buttonNumber = 
-    const prodDescription = json.element.description
-    const prodPrice = json.element.price
-    const prodLink = json.element.product_link
-    moreInfoDiv.innerText = `Description: ${prodDescription} Price: ${prodPrice} Link: ${prodLink} `
+    //const buttonNumber =
+    for (let i=0; i<json.length; i++) {
+      if (json[i].id==elementNumber) {
+        console.log(json[i].id) 
+        const prodDescription = json[i].description
+      const prodPrice = json[i].price
+      const prodLink = json[i].product_link
+      moreInfoDiv.innerText = `Description: ${prodDescription} Price: ${prodPrice} Link: ${prodLink} `
+     correspondingDiv.appendChild(moreInfoDiv)
+      }
+      else {console.log("peanuts")}
+    }
+    
+    
+    }
     //document.body.
   }
     });
