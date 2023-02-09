@@ -18,8 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
     newDiv.appendChild(newInput)
     const newImg = document.createElement("img")
     newImg.src = element.image_link
-    newImg.class = "imgclass"
+    newImg.setAttribute("class","imgclass");
     newDiv.appendChild(newImg)
+    console.log(newImg)
     //the below code needs to be here
     const buttonz = document.getElementsByClassName("buttonclass")
     const imgs = document.getElementsByClassName("imgclass")
@@ -62,25 +63,36 @@ document.addEventListener("DOMContentLoaded", () => {
     
   }
     });
-  function makePop(element) {
+  function makePop(event) {
     console.log("made pop")
-    console.log(element.target)
+    console.log(event.target)
+    console.log(event)
     // const target = event.target;
     // //.catch((error) => { document.getElementById("modal").classList.remove("hidden") setTimeout(() => { document.getElementById("modal").classList.add("hidden")
     // <div class="hidden" id="modal"> <h2>Error! Please try again.</h2> <p id="modal-message"></p> </div>
     
 
-      const defaultBG = element.target.style.backgroundColor;
-      const defaultTransition = element.target.style.transition;
-      element.target.style.transition = "background 1s";
-      element.target.style.backgroundColor = "#FDFF47";
+      const defaultBG = event.target.style.backgroundColor;
+      const defaultBorder = event.target.style.border;
+      const defaultPadding = event.target.style.padding;
+      const defaultBoxShadow = event.target.style.box-shadow;
+      const defaultTransition = event.target.style.transition;
+      event.target.style.transition = "background 1s";
+      event.target.style.backgroundColor = "#FDFF47";
+      event.target.style.border = "1px solid";
+      event.target.style.padding = "10px";
+      event.target.style.boxShadow = "5px 10px #888888";
+   
       
   
       setTimeout(function()
       {
-          element.target.style.backgroundColor = defaultBG;
+        event.target.style.backgroundColor = defaultBG;
+        event.target.style.border = defaultBorder;
+        event.target.style.padding = defaultPadding;
+        event.target.style.boxShadow = defaultBoxShadow;
           setTimeout(function() {
-              element.target.style.transition = defaultTransition;
+            event.target.style.transition = defaultTransition;
           }, 1000);
       }, 1000);
   
