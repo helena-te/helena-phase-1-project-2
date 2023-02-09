@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {const newDiv = document.createElement("div")
     newDiv.id = element.id
     newDiv.innerText = element.name
+    newDiv.style.fontFamily = "Lucida Bright"
     document.body.appendChild(newDiv)
     const newInput = document.createElement("input")
     newInput.setAttribute("type", "button");
@@ -32,45 +33,78 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     }
     )
-    
-
   }
+  // this works!!!
+  // function clickButton(event) {
+  //   console.log("button clicked")
+  //   const whichButton = event.target;
+  //   const elementNumber = whichButton.id.split("-")[0]
+  //   const correspondingDiv = document.getElementById(elementNumber)
+  //   console.log(correspondingDiv)
+  //   fetch(makeupUrl)
+  //   .then((resp) => resp.json())
+  //   .then((json) => callback(json))
+  //   function callback(json) {
+  //   for (let i=0; i<json.length; i++) {
+  //     if (json[i].id==elementNumber) {
+  //       const element =  document.getElementById(json[i].id);
+  //         const moreInfoDiv = document.createElement("p")
+  //         const prodLinkElement = document.createElement("a")      
+  //         const prodDescription = json[i].description
+  //         const prodPrice = json[i].price
+  //         const prodLinkValue = json[i].product_link
+  //         moreInfoDiv.innerText = `Description: ${prodDescription} Price: ${prodPrice}`
+  //         prodLinkElement.setAttribute("href", prodLinkValue)
+  //         prodLinkElement.innerText = "Click to visit product site!"
+  //         correspondingDiv.appendChild(moreInfoDiv)
+  //         correspondingDiv.appendChild(prodLinkElement)
+  //       }
+  //     else {console.log("peanuts")}
+  //     }
+  //   }
+  //   }
 
   function clickButton(event) {
     console.log("button clicked")
     const whichButton = event.target;
     const elementNumber = whichButton.id.split("-")[0]
     const correspondingDiv = document.getElementById(elementNumber)
+    const moreInfoDiv2 = document.getElementById(`div${elementNumber}`)
+    if (typeof(moreInfoDiv2) != 'undefined' && moreInfoDiv2 != null)
+    {
+      //moreInfoDiv2.classList.add("hidden")
+      console.log("exists")
+    }
+    else {
     fetch(makeupUrl)
     .then((resp) => resp.json())
     .then((json) => callback(json))
     function callback(json) {
-      const element =  document.getElementById(json[i].id);
-      if (typeof(element) != 'undefined' && element != null)
-      {
-        element.setAttribute("class", "hidden")
-      }
-      else {
-    const moreInfoDiv = document.createElement("p")
-    const prodLinkElement = document.createElement("a")
     for (let i=0; i<json.length; i++) {
       if (json[i].id==elementNumber) {
-        const prodDescription = json[i].description
-        const prodPrice = json[i].price
-        const prodLinkValue = json[i].product_link
-        moreInfoDiv.innerText = `Description: ${prodDescription} Price: ${prodPrice}`
-        prodLinkElement.setAttribute("href", prodLinkValue)
-        prodLinkElement.innerText = "Click to visit product site!"
-        correspondingDiv.appendChild(moreInfoDiv)
-        correspondingDiv.appendChild(prodLinkElement)
-      }
+        const element =  document.getElementById(json[i].id);
+          const moreInfoDiv = document.createElement("p")
+          const prodLinkElement = document.createElement("a")      
+          const prodDescription = json[i].description
+          const prodPrice = json[i].price
+          const prodLinkValue = json[i].product_link
+          const moreInfoDivID = `div${json[i].id}` 
+          moreInfoDiv.innerText = `Description: ${prodDescription} Price: ${prodPrice}`
+          moreInfoDiv.setAttribute("id", moreInfoDivID)
+          prodLinkElement.setAttribute("href", prodLinkValue)
+          prodLinkElement.innerText = "Click to visit product site!"
+          correspondingDiv.style.fontFamily = "Lucida Bright"
+          correspondingDiv.appendChild(moreInfoDiv)
+          correspondingDiv.appendChild(prodLinkElement)
+        }
       else {console.log("peanuts")}
-    }
       }
     }
-    
-  }
-    });
+    }
+    }
+
+
+  });
   function makePop(event) {
     console.log("made pop")
     
