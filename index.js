@@ -47,15 +47,17 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((json) => callback(json))
     function callback(json) {
     const moreInfoDiv = document.createElement("p")
-    //const buttonNumber =
+    const prodLinkElement = document.createElement("a")
     for (let i=0; i<json.length; i++) {
       if (json[i].id==elementNumber) {
         console.log(json[i].id) 
         const prodDescription = json[i].description
-      const prodPrice = json[i].price
-      const prodLink = json[i].product_link
-      moreInfoDiv.innerText = `Description: ${prodDescription} Price: ${prodPrice} Link: ${prodLink} `
-     correspondingDiv.appendChild(moreInfoDiv)
+        const prodPrice = json[i].price
+        const prodLinkValue = json[i].product_link
+        prodLinkElement.setAttribute("href", prodLinkValue)
+        moreInfoDiv.innerText = `Description: ${prodDescription} Price: ${prodPrice} Link: ${prodLink} `
+        moreInfoDiv.appendChild(prodLinkElement)
+        correspondingDiv.appendChild(moreInfoDiv)
       }
       else {console.log("peanuts")}
     }
@@ -65,25 +67,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   function makePop(event) {
     console.log("made pop")
-    console.log(event.target)
-    console.log(event)
-    // const target = event.target;
-    // //.catch((error) => { document.getElementById("modal").classList.remove("hidden") setTimeout(() => { document.getElementById("modal").classList.add("hidden")
-    // <div class="hidden" id="modal"> <h2>Error! Please try again.</h2> <p id="modal-message"></p> </div>
     
-
       const defaultBG = event.target.style.backgroundColor;
       const defaultBorder = event.target.style.border;
       const defaultPadding = event.target.style.padding;
       const defaultBoxShadow = event.target.style.boxShadow;
       const defaultTransition = event.target.style.transition;
-      event.target.style.transition = "background 1s";
+      event.target.style.transition = "FFFFFF";
       event.target.style.backgroundColor = "#FF00BF";
       event.target.style.border = "1px solid";
       event.target.style.padding = "10px";
-      event.target.style.boxShadow = "5px 10px #888888";
+      event.target.style.boxShadow = "5px 10px #E6E6FA";
    
-      
+   
   
       setTimeout(function()
       {
@@ -98,86 +94,3 @@ document.addEventListener("DOMContentLoaded", () => {
   
   } 
 
-//stuff from before
-// document.addEventListener("DOMContentLoaded", () => {
-// fetch(makeupUrl)
-//     .then((resp) => resp.json())
-//     .then((json) => displayProdName(json))
-//     .then((json) => displayProdPic(json))
-
-
-// function displayProdName(json) {
-//     json.forEach(product => 
-//         {for (let i=495; i>0; i--) {
-//             const thisDiv = document.getElementById(`${i}`)
-//             cons
-//             console.log(thisDiv)
-//             if (thisDiv !== null) {
-                
-//                 //console.log(thisDiv.id)
-//                 console.log("")
-//                 if (product.id == thisDiv.id) {
-//                     //console.log(product.id)
-//                     console.log("ello")
-//                     const prodName = document.createElement("p")
-                    
-//                     prodName.innerText = product.name
-//                     console.log(prodName)
-//                     //document.body.append(prodName);
-//                     thisDiv.appendChild(prodName)
-//                 }
-//                 else {
-//                     return null
-                    
-//                 }   
-//             }
-//         }
-//         }
-//     )     
-// }
-
-// function displayProdPic(json) {
-//     json.forEach(product => 
-//         {for (let i=495; i>0; i--) {
-//             const thisDiv = document.getElementById(`${i}`)
-//             console.log(thisDiv)
-//             if (thisDiv !== null) {
-                
-//                 //console.log(thisDiv.id)
-//                 console.log("")
-//                 if (product.id == thisDiv.id) {
-//                     //console.log(product.id)
-//                     console.log("ello")
-//                     const prodPic = document.createElement("img")
-//                     prodPic.src = product.image_link
-//                     //console.log(prodName)
-//                     //document.body.append(prodName);
-//                     thisDiv.appendChild(prodPic)
-//                 }
-//                 else {
-//                     console.log(product.id)
-//                     console.log(thisDiv.id)
-                    
-//                 }   
-//             }
-//         }
-//         }
-//     )    
-// }
-// function forProduct(product) { 
-//     console.log(product.id)   
-//     for (let i=0; i<496; i++) {
-//         const thisDiv = document.getElementById(i)
-//         if (product.id == thisDiv.id) {
-//             console.log(product.id)
-//         }
-//     }
-//     }   
-
-
-// // function displayProdPic(json) {
-  
-    
-// // }
-
-// })
