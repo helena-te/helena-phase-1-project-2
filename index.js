@@ -6,8 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //.then((json) => addClickButton(json));
   function makeProductDivs(json) {
   json.forEach(element => 
-    {console.log(element.id)
-      const newDiv = document.createElement("div")
+    {const newDiv = document.createElement("div")
     newDiv.id = element.id
     newDiv.innerText = element.name
     document.body.appendChild(newDiv)
@@ -16,20 +15,20 @@ document.addEventListener("DOMContentLoaded", () => {
     newInput.setAttribute("value", "Show me more!");
     newInput.setAttribute("id", `${element.id}-btn`);
     newInput.setAttribute("class", "buttonclass")
-    console.log(newInput)
     newDiv.appendChild(newInput)
     const newImg = document.createElement("img")
-    newImg.src = element.image_link 
+    newImg.src = element.image_link
+    newImg.class = "imgclass"
     newDiv.appendChild(newImg)
     //the below code needs to be here
     const buttonz = document.getElementsByClassName("buttonclass")
-    const divs = document.querySelectorAll("div")
+    const imgs = document.getElementsByClassName("imgclass")
 
     for (const aButton of buttonz) {
       aButton.addEventListener("click", clickButton)
     }
-    for (const div of divs) {
-      div.addEventListener("mouseover", makePop)
+    for (const img of imgs) {
+      img.addEventListener("mouseover", makePop)
     }
     }
     )
@@ -64,21 +63,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
     });
   function makePop(element) {
+    console.log("made pop")
+    console.log(element.target)
     // const target = event.target;
     // //.catch((error) => { document.getElementById("modal").classList.remove("hidden") setTimeout(() => { document.getElementById("modal").classList.add("hidden")
     // <div class="hidden" id="modal"> <h2>Error! Please try again.</h2> <p id="modal-message"></p> </div>
- 
-      let defaultBG = element.style.backgroundColor;
-      let defaultTransition = element.style.transition;
-  
-      element.style.transition = "background 1s";
-      element.style.backgroundColor = "#FDFF47";
+    
+
+      const defaultBG = element.target.style.backgroundColor;
+      const defaultTransition = element.target.style.transition;
+      element.target.style.transition = "background 1s";
+      element.target.style.backgroundColor = "#FDFF47";
+      
   
       setTimeout(function()
       {
-          element.style.backgroundColor = defaultBG;
+          element.target.style.backgroundColor = defaultBG;
           setTimeout(function() {
-              element.style.transition = defaultTransition;
+              element.target.style.transition = defaultTransition;
           }, 1000);
       }, 1000);
   
