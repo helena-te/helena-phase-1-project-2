@@ -20,8 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     newImg.src = element.image_link
     newImg.setAttribute("class","imgclass");
     newDiv.appendChild(newImg)
-    console.log(newImg)
-    //the below code needs to be here
+    
     const buttonz = document.getElementsByClassName("buttonclass")
     const imgs = document.getElementsByClassName("imgclass")
 
@@ -50,14 +49,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const prodLinkElement = document.createElement("a")
     for (let i=0; i<json.length; i++) {
       if (json[i].id==elementNumber) {
-        console.log(json[i].id) 
         const prodDescription = json[i].description
         const prodPrice = json[i].price
         const prodLinkValue = json[i].product_link
+        moreInfoDiv.innerText = `Description: ${prodDescription} Price: ${prodPrice}`
         prodLinkElement.setAttribute("href", prodLinkValue)
-        moreInfoDiv.innerText = `Description: ${prodDescription} Price: ${prodPrice} Link: ${prodLink} `
-        moreInfoDiv.appendChild(prodLinkElement)
+        prodLinkElement.innerText = "Click to visit product site!"
         correspondingDiv.appendChild(moreInfoDiv)
+        correspondingDiv.appendChild(prodLinkElement)
       }
       else {console.log("peanuts")}
     }
