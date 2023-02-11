@@ -46,16 +46,16 @@ document.addEventListener("DOMContentLoaded", () => {
     )
   }
  
-
+  // if button is clicked, this function executes and 
   function clickButton(event) {
     const whichButton = event.target;
     const elementNumber = whichButton.id.split("-")[0]
     const correspondingDiv = document.getElementById(elementNumber)
     const moreInfoDiv2 = document.getElementById(`div${elementNumber}`)
     if (typeof(moreInfoDiv2) != 'undefined' && moreInfoDiv2 != null)
-    {
-      console.log("exists")
-    }
+      {
+        console.log("exists")
+      }
     else {
     fetch(makeupUrl)
     .then((resp) => resp.json())
@@ -63,17 +63,20 @@ document.addEventListener("DOMContentLoaded", () => {
     function callback(json) {
     for (let i=0; i<json.length; i++) {
       if (json[i].id==elementNumber) {
-        const element =  document.getElementById(json[i].id);
+        //const element =  document.getElementById(json[i].id);
           const moreInfoDiv = document.createElement("p")
           const prodLinkElement = document.createElement("a")      
           const prodDescription = json[i].description
           const prodPrice = json[i].price
           const prodLinkValue = json[i].product_link
+
           const moreInfoDivID = `div${json[i].id}` 
           moreInfoDiv.innerText = `Description: ${prodDescription} Price: ${prodPrice}`
           moreInfoDiv.setAttribute("id", moreInfoDivID)
+
           prodLinkElement.setAttribute("href", prodLinkValue)
           prodLinkElement.innerText = "Click to visit product site!"
+
           correspondingDiv.style.fontFamily = "Lucida Bright"
           correspondingDiv.appendChild(moreInfoDiv)
           correspondingDiv.appendChild(prodLinkElement)
