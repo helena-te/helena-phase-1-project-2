@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const prodLinkValue = json[i].product_link
 
           const moreInfoDivID = `div${json[i].id}` 
-          moreInfoDiv.innerText = `Description: ${prodDescription} Price: ${prodPrice}`
+          moreInfoDiv.innerText = `Description: ${prodDescription} Price: $${prodPrice}`
           moreInfoDiv.setAttribute("id", moreInfoDivID)
 
           prodLinkElement.setAttribute("href", prodLinkValue)
