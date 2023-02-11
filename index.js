@@ -87,26 +87,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function makePop(event) {
-       const defaultBG = event.target.style.backgroundColor;
-        const defaultBorder = event.target.style.border;
-        const defaultPadding = event.target.style.padding;
-        const defaultBoxShadow = event.target.style.boxShadow;
-        const defaultTransition = event.target.style.transition;
-        event.target.style.transition = "FFFFFF";
-        event.target.style.backgroundColor = "#FF1493";
-        event.target.style.border = "1px solid";
-        event.target.style.padding = "10px";
-        event.target.style.boxShadow = "5px 10px #FFDFDD";
+      const defaultBG = event.target.style.backgroundColor;
+      const defaultBorder = event.target.style.border;
+      const defaultPadding = event.target.style.padding;
+      const defaultBoxShadow = event.target.style.boxShadow;
+      // const defaultTransition = event.target.style.transition;
+      // event.target.style.transition = "FFFFFF";
+      // const defaultBG = 
+      // const defaultBorder = 
+      // const defaultPadding = 
+      // const defaultBoxShadow = 
+      event.target.style.backgroundColor = "#FF1493";
+      event.target.style.border = "1px solid";
+      event.target.style.padding = "10px";
+      event.target.style.boxShadow = "5px 10px #FFDFDD";
         
-        setTimeout(() =>
+      setTimeout(() =>
         {
           event.target.style.backgroundColor = defaultBG;
           event.target.style.border = defaultBorder;
           event.target.style.padding = defaultPadding;
           event.target.style.boxShadow = defaultBoxShadow;
-            setTimeout(() => {
-              event.target.style.transition = defaultTransition;
-            }, 1000);
+            // setTimeout(() => {
+            //   event.target.style.transition = defaultTransition;
+            // }, 1000);
         }, 1000);
     
     } 
