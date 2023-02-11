@@ -51,8 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const whichButton = event.target;
     const elementNumber = whichButton.id.split("-")[0]
     const correspondingDiv = document.getElementById(elementNumber)
-    const moreInfoDiv2 = document.getElementById(`div${elementNumber}`)
-    if (typeof(moreInfoDiv2) != 'undefined' && moreInfoDiv2 != null)
+    const moreInfoDivMaybe = document.getElementById(`div${elementNumber}`)
+    if (typeof(moreInfoDivMaybe) != 'undefined' && moreInfoDivMaybe != null)
       {
         console.log("exists")
       }
@@ -63,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function callback(json) {
     for (let i=0; i<json.length; i++) {
       if (json[i].id==elementNumber) {
-        //const element =  document.getElementById(json[i].id);
           const moreInfoDiv = document.createElement("p")
           const prodLinkElement = document.createElement("a")      
           const prodDescription = json[i].description
