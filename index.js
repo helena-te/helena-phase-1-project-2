@@ -43,10 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
       img.addEventListener("mouseover", makePop)
     }
     }
-    )
+  )
   }
  
-  // if button is clicked, this function executes and displays more information about the product
+  // when called, this function executes and displays more information about the product
   function clickButton(event) {
     const whichButton = event.target;
     const elementNumber = whichButton.id.split("-")[0]
@@ -86,17 +86,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     }
 
+    // when called, this function highlights the event target with a pink box
     function makePop(event) {
       const defaultBG = event.target.style.backgroundColor;
       const defaultBorder = event.target.style.border;
       const defaultPadding = event.target.style.padding;
       const defaultBoxShadow = event.target.style.boxShadow;
-      // const defaultTransition = event.target.style.transition;
-      // event.target.style.transition = "FFFFFF";
-      // const defaultBG = 
-      // const defaultBorder = 
-      // const defaultPadding = 
-      // const defaultBoxShadow = 
+
       event.target.style.backgroundColor = "#FF1493";
       event.target.style.border = "1px solid";
       event.target.style.padding = "10px";
@@ -108,13 +104,8 @@ document.addEventListener("DOMContentLoaded", () => {
           event.target.style.border = defaultBorder;
           event.target.style.padding = defaultPadding;
           event.target.style.boxShadow = defaultBoxShadow;
-            // setTimeout(() => {
-            //   event.target.style.transition = defaultTransition;
-            // }, 1000);
         }, 1000);
-    
     } 
-
   });
   
 
