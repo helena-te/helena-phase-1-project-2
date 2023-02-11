@@ -1,5 +1,3 @@
-
-
 ## Introduction
 
 ## This web application takes information from the API `https://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline` and delivers it on the screen in an informative and enjoyable way.
