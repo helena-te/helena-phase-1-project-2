@@ -48,14 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
  
 
   function clickButton(event) {
-    console.log("button clicked")
     const whichButton = event.target;
     const elementNumber = whichButton.id.split("-")[0]
     const correspondingDiv = document.getElementById(elementNumber)
     const moreInfoDiv2 = document.getElementById(`div${elementNumber}`)
     if (typeof(moreInfoDiv2) != 'undefined' && moreInfoDiv2 != null)
     {
-      //moreInfoDiv2.classList.add("hidden")
       console.log("exists")
     }
     else {
