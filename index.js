@@ -38,35 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     )
   }
-  // this works!!!
-  // function clickButton(event) {
-  //   console.log("button clicked")
-  //   const whichButton = event.target;
-  //   const elementNumber = whichButton.id.split("-")[0]
-  //   const correspondingDiv = document.getElementById(elementNumber)
-  //   console.log(correspondingDiv)
-  //   fetch(makeupUrl)
-  //   .then((resp) => resp.json())
-  //   .then((json) => callback(json))
-  //   function callback(json) {
-  //   for (let i=0; i<json.length; i++) {
-  //     if (json[i].id==elementNumber) {
-  //       const element =  document.getElementById(json[i].id);
-  //         const moreInfoDiv = document.createElement("p")
-  //         const prodLinkElement = document.createElement("a")      
-  //         const prodDescription = json[i].description
-  //         const prodPrice = json[i].price
-  //         const prodLinkValue = json[i].product_link
-  //         moreInfoDiv.innerText = `Description: ${prodDescription} Price: ${prodPrice}`
-  //         prodLinkElement.setAttribute("href", prodLinkValue)
-  //         prodLinkElement.innerText = "Click to visit product site!"
-  //         correspondingDiv.appendChild(moreInfoDiv)
-  //         correspondingDiv.appendChild(prodLinkElement)
-  //       }
-  //     else {console.log("peanuts")}
-  //     }
-  //   }
-  //   }
+ 
 
   function clickButton(event) {
     console.log("button clicked")
@@ -123,16 +95,13 @@ document.addEventListener("DOMContentLoaded", () => {
       event.target.style.padding = "10px";
       event.target.style.boxShadow = "5px 10px #FFDFDD";
       
-      //FF00BF
-   
-  
-      setTimeout(function()
+      setTimeout(() =>
       {
         event.target.style.backgroundColor = defaultBG;
         event.target.style.border = defaultBorder;
         event.target.style.padding = defaultPadding;
         event.target.style.boxShadow = defaultBoxShadow;
-          setTimeout(function() {
+          setTimeout(() => {
             event.target.style.transition = defaultTransition;
           }, 1000);
       }, 1000);
