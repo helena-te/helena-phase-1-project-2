@@ -85,10 +85,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     }
     }
+
     function makePop(event) {
-      console.log("made pop")
-      
-        const defaultBG = event.target.style.backgroundColor;
+       const defaultBG = event.target.style.backgroundColor;
         const defaultBorder = event.target.style.border;
         const defaultPadding = event.target.style.padding;
         const defaultBoxShadow = event.target.style.boxShadow;
