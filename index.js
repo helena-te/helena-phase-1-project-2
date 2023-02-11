@@ -1,16 +1,21 @@
 const makeupUrl = "https://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline"
+
+
 document.addEventListener("DOMContentLoaded", () => {
     fetch(makeupUrl)
     .then((resp) => resp.json())
     .then((json) => makeProductDivs(json))
-    //.then((json) => addClickButton(json));
+  
+  // makes a div html element for each element of the API array
   function makeProductDivs(json) {
   json.forEach(element => 
     {const newDiv = document.createElement("div")
     newDiv.id = element.id
     newDiv.innerText = element.name
     newDiv.style.fontFamily = "Lucida Bright"
+
     document.body.appendChild(newDiv)
+
     const newInput = document.createElement("input")
     newInput.setAttribute("type", "button");
     newInput.setAttribute("value", "Show me more!");
@@ -21,9 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
     newInput.style.backgroundColor = "#CCFFFF"
     newInput.style.borderColor = "#00FFFF"
     newDiv.appendChild(newInput)
+
     const newImg = document.createElement("img")
     newImg.src = element.image_link
     newImg.setAttribute("class","imgclass");
+
     newDiv.appendChild(newImg)
     
     const buttonz = document.getElementsByClassName("buttonclass")
