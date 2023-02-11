@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     )
   }
  
-  // if button is clicked, this function executes and 
+  // if button is clicked, this function executes and displays more information about the product
   function clickButton(event) {
     const whichButton = event.target;
     const elementNumber = whichButton.id.split("-")[0]
